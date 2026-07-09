@@ -1,0 +1,175 @@
+/* ============================================================
+   NĂM ĐỊA LINH — Bản hùng ca bất tử (Quảng Trị)
+   Giao diện tưởng niệm · oai hùng · trang nghiêm
+   ============================================================ */
+
+/* ---------- FONTS (nhúng cục bộ, chạy offline) ---------- */
+@font-face{ font-family:'PlexSerif'; src:url('../fonts/IBMPlexSerif-Regular.ttf'); font-weight:400; font-display:swap; }
+@font-face{ font-family:'PlexSerif'; src:url('../fonts/IBMPlexSerif-Bold.ttf'); font-weight:700; font-display:swap; }
+@font-face{ font-family:'PlexSerif'; src:url('../fonts/IBMPlexSerif-Italic.ttf'); font-style:italic; font-weight:400; font-display:swap; }
+@font-face{ font-family:'Lora'; src:url('../fonts/Lora-Regular.ttf'); font-weight:400; font-display:swap; }
+@font-face{ font-family:'Lora'; src:url('../fonts/Lora-Bold.ttf'); font-weight:700; font-display:swap; }
+@font-face{ font-family:'Lora'; src:url('../fonts/Lora-Italic.ttf'); font-style:italic; font-weight:400; font-display:swap; }
+@font-face{ font-family:'Crimson'; src:url('../fonts/CrimsonPro-Italic.ttf'); font-style:italic; font-weight:400; font-display:swap; }
+@font-face{ font-family:'Crimson'; src:url('../fonts/CrimsonPro-Regular.ttf'); font-weight:400; font-display:swap; }
+@font-face{ font-family:'Mono'; src:url('../fonts/IBMPlexMono-Regular.ttf'); font-weight:400; font-display:swap; }
+
+:root{
+  --ink:#171210; --ink2:#211913;
+  --paper:#ECE3D1; --paper2:#E3D7BF; --card:#F3ECDD;
+  --text:#2A231B; --muted:#6E6353; --faint:#9C907B;
+  --gold:#B4924E; --gold2:#D8B76B; --ember:#8A2318; --ember2:#A63020;
+  --cream:#F4ECDC;
+  --display:'PlexSerif', Georgia, serif;
+  --body:'Lora', Georgia, serif;
+  --accent:'Crimson', Georgia, serif;
+  --mono:'Mono', monospace;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ font-family:var(--body); color:var(--text); line-height:1.78; background:var(--paper); overflow-x:hidden; }
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky; top:0; z-index:80;
+  display:flex; flex-wrap:wrap; align-items:center; gap:2px 24px;
+  padding:13px 30px; background:rgba(18,13,10,0.96);
+  border-bottom:1px solid rgba(180,146,78,0.4);
+}
+.nav .brand{ font-family:var(--mono); font-size:12px; letter-spacing:3px; color:var(--gold2);
+  text-transform:uppercase; margin-right:auto; }
+.nav a{ font-family:var(--mono); font-size:11px; letter-spacing:1.6px; color:#CDBE9F;
+  text-decoration:none; text-transform:uppercase; padding:5px 0; border-bottom:1.5px solid transparent; transition:.22s; }
+.nav a:hover, .nav a.active{ color:#fff; border-color:var(--gold); }
+
+/* ---------- HERO ---------- */
+.hero{ position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  text-align:center; overflow:hidden; }
+.hero__bg{ position:absolute; inset:0; transform:scale(1.06);
+  background:
+    linear-gradient(rgba(18,13,10,0.55), rgba(18,13,10,0.80)),
+    url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/34._Quang_Tri_Citadel_and_City_looking_South_Fall_1967.jpg/1280px-34._Quang_Tri_Citadel_and_City_looking_South_Fall_1967.jpg') center/cover no-repeat;
+}
+.hero__veil{ position:absolute; inset:0; background:radial-gradient(80% 60% at 50% 40%, transparent 0%, rgba(18,13,10,0.5) 100%); }
+.hero__inner{ position:relative; z-index:3; max-width:900px; padding:60px 26px; color:var(--cream); }
+.star{ width:46px; height:46px; margin:0 auto 26px; display:block; filter:drop-shadow(0 0 14px rgba(216,183,107,0.5)); }
+.hero__kick{ font-family:var(--mono); font-size:13px; letter-spacing:8px; color:var(--gold2);
+  text-transform:uppercase; margin-bottom:24px; }
+.hero__title{ font-family:var(--display); font-weight:700; font-size:clamp(40px,7.5vw,84px);
+  letter-spacing:4px; line-height:1.02; color:#fff; text-shadow:0 2px 30px rgba(0,0,0,0.5); }
+.hero__title .thin{ display:block; font-weight:400; font-size:clamp(18px,3vw,30px); letter-spacing:6px;
+  color:var(--gold2); margin-top:16px; }
+.hero__sub{ font-family:var(--accent); font-style:italic; font-size:clamp(17px,2.6vw,24px);
+  color:#EADFC9; margin-top:26px; max-width:680px; margin-left:auto; margin-right:auto; }
+.hero__scroll{ position:absolute; bottom:26px; left:50%; transform:translateX(-50%); z-index:3;
+  font-family:var(--mono); font-size:10px; letter-spacing:3px; color:var(--gold2); text-transform:uppercase; opacity:.8; }
+
+/* ---------- SECTION FRAMEWORK ---------- */
+.section{ padding:96px 0; }
+.wrap{ max-width:1020px; margin:0 auto; padding:0 26px; }
+.section--dark{ background:var(--ink); color:var(--cream); }
+.section--dark .lead{ color:#E7DCC6; }
+.section--dark .kv .k{ color:var(--gold2); }
+.section--dark .src{ color:#9a8f78; }
+.divider{ display:flex; align-items:center; justify-content:center; gap:16px; margin:0 auto 40px; }
+.divider .line{ height:1px; width:70px; background:var(--gold); }
+.divider .di{ width:10px; height:10px; transform:rotate(45deg); background:var(--ember); }
+
+.eyebrow{ font-family:var(--mono); font-size:11px; letter-spacing:3.5px; color:var(--gold);
+  text-transform:uppercase; }
+.section--dark .eyebrow{ color:var(--gold2); }
+.h2{ font-family:var(--display); font-weight:700; font-size:clamp(28px,4.6vw,46px);
+  line-height:1.12; letter-spacing:.6px; margin:12px 0 6px; }
+.place{ font-family:var(--mono); font-size:11px; letter-spacing:2px; color:var(--muted);
+  text-transform:uppercase; margin-bottom:22px; }
+.section--dark .place{ color:var(--faint); }
+.numbig{ font-family:var(--display); font-weight:700; font-size:clamp(60px,12vw,120px);
+  color:transparent; -webkit-text-stroke:1.4px rgba(180,146,78,0.55); line-height:.8;
+  position:absolute; right:26px; top:-18px; opacity:.5; pointer-events:none; user-select:none; }
+.section{ position:relative; overflow:hidden; }
+
+.lead{ font-size:20px; line-height:1.75; }
+.lead strong{ color:var(--ember2); }
+.section--dark .lead strong{ color:var(--gold2); }
+p{ margin-bottom:15px; }
+
+/* intro */
+.creed{ font-family:var(--accent); font-style:italic; font-size:clamp(20px,3vw,27px);
+  line-height:1.5; color:var(--cream); text-align:center; max-width:820px; margin:0 auto; }
+.creed b{ font-style:normal; color:var(--gold2); font-family:var(--display); font-weight:700; }
+
+/* route */
+.route{ margin-top:34px; padding:26px 30px; background:var(--card); border-left:4px solid var(--gold); }
+.route h3{ font-family:var(--display); font-weight:700; font-size:18px; letter-spacing:.5px; margin-bottom:12px; }
+.route ol{ list-style:none; counter-reset:r; }
+.route li{ counter-increment:r; padding:7px 0 7px 46px; position:relative; border-top:1px solid rgba(180,146,78,0.22); }
+.route li:first-child{ border-top:none; }
+.route li::before{ content:"0" counter(r); position:absolute; left:0; top:7px; font-family:var(--mono);
+  color:var(--gold); font-size:14px; font-weight:500; }
+
+/* figures */
+figure{ margin:26px 0; }
+figure img{ width:100%; border-radius:2px; box-shadow:0 12px 40px rgba(0,0,0,0.28); }
+.video-shell{ margin:26px 0; }
+.video-frame{ position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:2px; box-shadow:0 12px 40px rgba(0,0,0,0.28); background:linear-gradient(135deg, rgba(18,13,10,0.95), rgba(41,30,18,0.9)); }
+.video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+.grid2{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+figcaption{ font-family:var(--mono); font-size:10.5px; color:var(--faint); letter-spacing:.3px;
+  margin-top:8px; line-height:1.55; }
+figcaption a{ color:var(--gold); }
+
+/* illustration placeholders (SVG-based, có chủ ý) */
+.illus{ width:100%; aspect-ratio:16/9; border-radius:2px; overflow:hidden; box-shadow:0 12px 40px rgba(0,0,0,0.22); }
+.illus svg{ width:100%; height:100%; display:block; }
+.illus-cap{ font-family:var(--mono); font-size:10.5px; color:var(--faint); letter-spacing:.3px; margin-top:8px; }
+
+/* key values */
+.kv{ margin:26px 0 14px; }
+.kv .row{ display:flex; gap:16px; padding:13px 0; border-top:1px solid rgba(180,146,78,0.26); }
+.kv .row:first-child{ border-top:none; }
+.kv .k{ font-family:var(--mono); font-size:11px; color:var(--gold); letter-spacing:1.5px;
+  text-transform:uppercase; flex:0 0 130px; padding-top:3px; }
+.kv .v{ flex:1; }
+.src{ font-family:var(--mono); font-size:10.5px; color:var(--faint); margin-top:10px; }
+
+/* pull quote banner */
+.banner{ background:var(--ink); color:var(--cream); text-align:center; padding:90px 26px; }
+.banner q{ font-family:var(--accent); font-style:italic; font-size:clamp(22px,3.6vw,34px);
+  line-height:1.45; max-width:820px; display:inline-block; }
+.banner q::before, .banner q::after{ content:''; }
+.banner .who{ font-family:var(--mono); font-size:11px; letter-spacing:3px; color:var(--gold2);
+  text-transform:uppercase; margin-top:24px; }
+
+/* credits */
+.credits{ background:var(--paper2); }
+.credits ul{ list-style:none; }
+.credits li{ padding:10px 0; border-top:1px solid rgba(180,146,78,0.24); font-size:15px; }
+.credits li:first-child{ border-top:none; }
+.note{ font-size:14px; color:var(--muted); margin-top:20px; padding:18px 20px;
+  border:1px solid rgba(138,35,24,0.32); background:rgba(138,35,24,0.05); border-radius:2px; }
+
+/* footer */
+.foot{ background:var(--ink); color:#B7A98C; text-align:center; padding:46px 26px 64px; }
+.foot .star{ width:30px; height:30px; margin-bottom:16px; }
+.foot .fm{ font-family:var(--mono); font-size:11px; letter-spacing:3px; text-transform:uppercase; }
+.foot .small{ font-size:12px; color:#8b7f68; margin-top:12px; }
+
+/* reveal animation (chỉ ẩn khi có JS; không JS thì hiện bình thường) */
+.js .reveal{ opacity:0; transform:translateY(26px); transition:opacity .8s ease, transform .8s ease; }
+.js .reveal.in{ opacity:1; transform:none; }
+
+@media(max-width:640px){
+  .grid2{ grid-template-columns:1fr; }
+  .kv .row{ flex-direction:column; gap:3px; }
+  .kv .k{ flex-basis:auto; }
+  .nav .brand{ width:100%; margin-bottom:6px; }
+  .section{ padding:64px 0; }
+  .numbig{ display:none; }
+}
+@media(prefers-reduced-motion:reduce){
+  .js .reveal{ opacity:1; transform:none; transition:none; }
+  html{ scroll-behavior:auto; }
+}
