@@ -113,6 +113,20 @@ p{ margin-bottom:15px; }
 /* figures */
 figure{ margin:26px 0; }
 figure img{ width:100%; border-radius:2px; box-shadow:0 12px 40px rgba(0,0,0,0.28); }
+.video-collection{ margin:28px 0 18px; padding:22px 0 8px; border-top:1px solid rgba(180,146,78,0.24); border-bottom:1px solid rgba(180,146,78,0.24); }
+.video-collection__header{ margin-bottom:18px; }
+.video-collection__lead{ font-size:15px; color:var(--muted); line-height:1.65; margin-top:8px; max-width:700px; }
+.video-grid{ display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; }
+.video-card{ background:rgba(255,255,255,0.04); border:1px solid rgba(180,146,78,0.2); border-radius:6px; overflow:hidden; box-shadow:0 10px 28px rgba(0,0,0,0.12); }
+.video-card__frame{ position:relative; aspect-ratio:16/9; background:linear-gradient(135deg, rgba(18,13,10,0.95), rgba(61,46,29,0.95)); padding:12px; }
+/* Ép iframe YouTube phủ kín khung (khắc phục video bị cắt do kích thước cứng) */
+.video-card__frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
+.video-card__placeholder{ display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-end; height:100%; padding:16px; border:1px solid rgba(216,183,107,0.24); border-radius:4px; background:linear-gradient(180deg, rgba(216,183,107,0.08), rgba(0,0,0,0.24)); color:var(--cream); }
+.video-card__placeholder span{ font-family:var(--mono); font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--gold2); margin-bottom:6px; }
+.video-card__placeholder small{ font-family:var(--body); font-size:13px; color:rgba(255,246,228,0.82); }
+.video-card__meta{ padding:14px 16px 16px; }
+.video-card__meta h3{ font-family:var(--display); font-size:18px; line-height:1.25; margin-bottom:6px; color:var(--gold2); }
+.video-card__meta p{ font-size:13px; line-height:1.65; color:var(--muted); margin:0; }
 .video-shell{ margin:26px 0; }
 .video-frame{ position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; border-radius:2px; box-shadow:0 12px 40px rgba(0,0,0,0.28); background:linear-gradient(135deg, rgba(18,13,10,0.95), rgba(41,30,18,0.9)); }
 .video-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; display:block; }
@@ -163,6 +177,7 @@ figcaption a{ color:var(--gold); }
 
 @media(max-width:640px){
   .grid2{ grid-template-columns:1fr; }
+  .video-grid{ grid-template-columns:1fr; }
   .kv .row{ flex-direction:column; gap:3px; }
   .kv .k{ flex-basis:auto; }
   .nav .brand{ width:100%; margin-bottom:6px; }
